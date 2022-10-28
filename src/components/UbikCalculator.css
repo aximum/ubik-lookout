@@ -1,0 +1,241 @@
+.calculator-container {
+  text-align: center;
+  overflow: auto;
+  height: 100vh;
+}
+
+.logo {
+  width: 5rem;
+  display: block;
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+}
+
+.title {
+  color: aliceblue;
+  margin: 0;
+  padding-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: aliceblue;
+  margin: 0 5rem 2rem;
+}
+
+.form {
+  margin-top: 2rem;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.form-subcontainer {
+  padding: 0;
+}
+
+.ubik-number-input {
+  width: 10%;
+  min-width: 10ch;
+  padding: 1ch 1rem 1ch 1rem;
+  background: rgba(63, 43, 0, 0.1);
+  border: 1px solid white;
+  border-radius: 8px;
+  color: aliceblue;
+  font-size: 16px;
+  outline: 0;
+}
+
+.ubik-number-input:focus {
+  border: 1px solid rgba(235, 113, 0, 0.75);
+}
+
+.input-hint {
+  color: aliceblue;
+}
+
+.ubik-add-button {
+  background: rgba(63, 43, 0, 0.5);
+  border: 1px solid rgba(152, 73, 0, 0.25);
+  /* font-size: 20px; */
+  color: white;
+  border-radius: 8px;
+  margin-left: 1rem;
+  padding: 0.5rem;
+  padding: auto 1rem;
+  transition: all 0.2s ease;
+  width: max-content;
+  font-weight: bold;
+}
+
+.ubik-add-button:hover {
+  background-color: rgba(197, 135, 0, 0.5);
+  border: 1px solid rgba(235, 113, 0, 0.5);
+  cursor: pointer;
+}
+
+.selected-ubik-div {
+  display: inline-block;
+  padding: 0.5ch 1ch 0.5ch 1ch;
+  background-color: rgb(66, 8, 79);
+  border: 2px solid rgb(66, 8, 79);
+  border-radius: 0.5rem;
+  margin: 1rem 0.5rem 0 0.5rem;
+}
+
+.selected-ubik {
+  color: aliceblue;
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.selected-ubik-button {
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  background: rgba(148, 148, 148, 0.15);
+  border: 1px solid rgba(191, 191, 191, 0.15);
+}
+
+.selected-ubik-button:hover {
+  background-color: rgba(191, 191, 191, 0.3);
+  border: 1px solid white;
+}
+
+.revenue-container {
+  padding: 1rem 1rem 1rem 1rem;
+  margin: 1rem 5rem 2rem 5rem;
+  border-radius: 2rem;
+  height: 50vh;
+}
+
+.total-revenue-container {
+  display: block;
+}
+
+.total-revenue-label {
+  display: inline-block;
+  color: aliceblue;
+  margin-top: 1rem;
+  font-weight: bolder;
+  font-size: 1.5rem;
+  border-radius: 8px;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.total-revenue-value {
+  color: lightgreen;
+}
+
+.calculate-button {
+  margin: auto;
+  margin-top: 2rem;
+  display: block;
+  text-align: center;
+  background: rgba(56, 102, 6, 0.5);
+  color: aliceblue;
+  border: 1px solid rgba(129, 214, 44, 0.15);
+  border-radius: 8px;
+  padding: 1rem 1.5rem 1rem 1.5rem;
+  transition: all 0.2s ease;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.icon {
+  color: white;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  width: fit-content;
+  animation: spinner 1.5s linear infinite;
+}
+
+.calculate-button:hover {
+  cursor: pointer;
+  background-color: rgba(98, 181, 9, 0.5);
+  border: 1px solid rgba(129, 214, 44, 0.5);
+}
+
+.calculate-button.disabled {
+  visibility: hidden;
+}
+
+.calculate-button.enabled {
+  visibility: visible;
+}
+
+.ubik-cards-list {
+  display: block;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.ubik-card-info {
+  display: flex;
+  justify-content: center;
+  background-color: rgba(100, 25, 0, 0.5);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  gap: 0.5rem;
+}
+
+.ubik-card {
+  margin: 0 1rem 1rem 1rem;
+  padding: 1rem;
+  background-color: rgba(100, 27, 0, 0.5);
+  border-radius: 1rem;
+  display: inline-block;
+}
+
+.ubik-img {
+  height: 100px;
+  width: 100px;
+  border-radius: 0.5rem;
+}
+
+.ubik-card-label {
+  display: block;
+  color: aliceblue;
+}
+
+.alt {
+  display: inline;
+  margin: auto;
+}
+
+.ubik-card-revenue {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.icon-var {
+  color: aliceblue;
+  margin-left: 0.5rem;
+  font-size: 1.25rem;
+  transition: all 0.2s ease;
+}
+
+.icon-var:hover {
+  cursor: pointer;
+  color: rgb(228, 230, 128);
+}
+
+.hints {
+  color: white;
+  line-height: 1.5rem;
+}
