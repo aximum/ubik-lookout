@@ -13,9 +13,8 @@ const SelectedUbik = (props) => {
 
     return (
 
-        <button className='selected-ubik-button selected-ubik-div' onClick={removeUbik}>
-            <label className='selected-ubik'>{props.ubik}
-            </label>X
+        <button className='selected-ubik-button selected-ubik-div' onClick={removeUbik} >
+            <label className='selected-ubik' >{props.ubik}</label>X
         </button>
 
     )
@@ -39,7 +38,7 @@ const UbikCard = (props) => {
 
 const UbikCalculator = () => {
 
-    const [inputValue, setInputValue] = useState()
+    const [inputValue, setInputValue] = useState('')
     const [ubiks, setUbiks] = useState([])
 
     const [ubikData, setUbikData] = useState([])
@@ -102,7 +101,7 @@ const UbikCalculator = () => {
                     <b>Note:</b> Values will change dynamically as Ubiks level up. <br></br>Allow ten minutes for new Upgrades to appear.</p> : <></>}
                 {ubiks.map((ubik) => {
                     return (
-                        <SelectedUbik ubik={ubik} setUbiks={setUbiks} />
+                        <SelectedUbik ubik={ubik} setUbiks={setUbiks} key={ubik} />
                     )
                 })}
                 <button className={`calculate-button ${(ubiks.length === 0 ? 'disabled' : 'enabled')}`} onClick={calculateUbiks} disabled={isLoading}>Calculate Rev Share</button>
@@ -113,7 +112,7 @@ const UbikCalculator = () => {
                 <div className='ubik-cards-list'>
                     {ubikData.map((ubik) => {
                         return (
-                            <UbikCard ubik={ubik.ubik} level={ubik.level} healthy={ubik.healthy} mutated={ubik.mutated} weight={ubik.weight} revenue={ubik.revenue}></UbikCard>
+                            <UbikCard key={ubik.ubik} ubik={ubik.ubik} level={ubik.level} healthy={ubik.healthy} mutated={ubik.mutated} weight={ubik.weight} revenue={ubik.revenue}></UbikCard>
                         )
                     })}
                 </div>
