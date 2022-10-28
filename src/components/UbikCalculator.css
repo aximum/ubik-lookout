@@ -28,7 +28,7 @@
   margin-top: 2rem;
   margin: 0 auto;
   padding: 0;
-  display: flex;
+  display: flexbox;
   justify-content: center;
 }
 
@@ -238,4 +238,27 @@
 .hints {
   color: white;
   line-height: 1.5rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .calculator-container {
+    margin-top: 10vh;
+    height: 90vh;
+  }
+
+  .revenue-container {
+    margin: auto;
+  }
+
+  .form,
+  .ubik-add-button,
+  .icon-var {
+    display: block;
+    margin: auto;
+  }
+
+  .ubik-add-button,
+  .icon-var {
+    margin-top: 1rem;
+  }
 }
