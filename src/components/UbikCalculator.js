@@ -36,10 +36,10 @@ const UbikCard = (props) => {
 
 
 
-const UbikCalculator = () => {
+const UbikCalculator = (props) => {
 
     const [inputValue, setInputValue] = useState('')
-    const [ubiks, setUbiks] = useState([])
+    const [ubiks, setUbiks] = useState(props.ubiks)
 
     const [ubikData, setUbikData] = useState([])
     const [totalRevenue, setTotalRevenue] = useState(0)
@@ -73,6 +73,10 @@ const UbikCalculator = () => {
             setIsLoading(false)
         })
     }
+
+    // useEffect(() => {
+    //     console.log('Here: ' + ubiks)
+    // }, [ubiks])
 
     useEffect(() => {
         let tempTotalRevenue = 0

@@ -1,13 +1,15 @@
-import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
-import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
+import { WalletAdapterNetwork, WalletNotConnectedError } from '@solana/wallet-adapter-base';
+import { ConnectionProvider, WalletProvider, useWallet } from '@solana/wallet-adapter-react';
 import { WalletModalProvider, WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { PhantomWalletAdapter, SolflareWalletAdapter, SolletWalletAdapter } from '@solana/wallet-adapter-wallets';
 import { clusterApiUrl } from '@solana/web3.js';
-import type { FC, ReactNode } from 'react';
-import React, { useMemo } from 'react';
+import React, { FC, ReactNode, useMemo, useState, useEffect } from 'react';
+
+
 import './App.css'
 import '@solana/wallet-adapter-react-ui/styles.css'
 import UbikCalculator from './components/UbikCalculator';
+import getUbiks from './components/getUbiks';
 
 const App: FC = () => {
     return (
@@ -22,10 +24,8 @@ const App: FC = () => {
 export default App;
 
 const Context: FC<{ children: ReactNode }> = ({ children }) => {
-    // The network can be set to 'devnet', 'testnet', or 'mainnet-beta'.
-    const network = WalletAdapterNetwork.Devnet;
+    const network = WalletAdapterNetwork.Mainnet;
 
-    // You can also provide a custom RPC endpoint.
     const endpoint = useMemo(() => clusterApiUrl(network), [network]);
 
     const wallets = useMemo(
@@ -47,6 +47,25 @@ const Context: FC<{ children: ReactNode }> = ({ children }) => {
 };
 
 const Content: FC = () => {
+
+    const [ubiks, setUbiks] = useState<number[]>([]);
+
+    const { publicKey } = useWallet();
+
+    useEffect(() => {
+        if (publicKey !== null) {
+            updateUbiks()
+        }
+    },[publicKey])
+
+    const updateUbiks = async () => {
+
+        const ubiks1 = await getUbiks(publicKey);
+        setUbiks(ubiks1);
+    };
+
+    const UbikCalculatorContext = React.createContext(ubiks)
+    
     return (
         <>
             <div className='bg-video-container'>
@@ -54,10 +73,10 @@ const Content: FC = () => {
                     <source src="https://s.baa.one/videos/landscape/landscape03.mp4" type="video/mp4"></source>
                 </video>
             </div>
-            <UbikCalculator />
-            <WalletMultiButton className='wallet-button' disabled>
-                <label>Coming Soon</label>
-            </WalletMultiButton>
+            <UbikCalculatorContext.Provider value={ubiks}>
+                <UbikCalculator ubiks={ubiks}/>
+            </UbikCalculatorContext.Provider>
+            <WalletMultiButton className='wallet-button'></WalletMultiButton>
         </>
     );
 };
