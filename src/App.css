@@ -67,3 +67,11 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+.tps {
+  color: aliceblue;
+  position: fixed;
+  z-index: 3;
+  bottom: 1rem;
+  left: 1rem;
+}

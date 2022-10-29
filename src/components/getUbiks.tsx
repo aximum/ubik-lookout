@@ -21,7 +21,7 @@ async function findProgramAddress(
 }
 
 const getStakedNfts = async (userWallet) => {
-  const connection = new Connection("https://api.mainnet-beta.solana.com");
+  const connection = new Connection(process.env.REACT_APP_API_ADDRESS as string);
 
   const [pda_account, nonce] = await findProgramAddress(new PublicKey(programId), [
     STAKE_SEED,
@@ -36,7 +36,7 @@ const getStakedNfts = async (userWallet) => {
 
 async function getTokenList(walletAddress) {
   try {
-      const connection = new Connection(clusterApiUrl('mainnet-beta'), 'confirmed');
+      const connection = new Connection(process.env.REACT_APP_API_ADDRESS as string);
   let tokensInWallet: Array<Object> = await getParsedNftAccountsByOwner({
       publicAddress: walletAddress,
       connection: connection,

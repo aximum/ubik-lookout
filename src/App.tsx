@@ -10,6 +10,7 @@ import './App.css'
 import '@solana/wallet-adapter-react-ui/styles.css'
 import UbikCalculator from './components/UbikCalculator';
 import getUbiks from './components/getUbiks';
+import { useTPS } from './components/useTPS';
 
 const App: FC = () => {
     return (
@@ -49,6 +50,7 @@ const Context: FC<{ children: ReactNode }> = ({ children }) => {
 const Content: FC = () => {
 
     const [ubiks, setUbiks] = useState<number[]>([]);
+    // const tps = useTPS();
 
     const { publicKey } = useWallet();
 
@@ -77,6 +79,7 @@ const Content: FC = () => {
                 <UbikCalculator ubiks={ubiks}/>
             </UbikCalculatorContext.Provider>
             <WalletMultiButton className='wallet-button'></WalletMultiButton>
+            {/* <label className='tps'>Solana TPS: {tps}</label> */}
         </>
     );
 };
