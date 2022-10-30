@@ -11,7 +11,7 @@ interface PerformanceSample {
 export const fetchPerformanceSample = async (): Promise<PerformanceSample> => {
   try {
     const res = await axios({
-      url: process.env.API_ADDRESS as string,
+      url: process.env.REACT_APP_API_ADDRESS as string,
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       data: {

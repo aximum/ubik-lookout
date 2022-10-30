@@ -260,3 +260,9 @@
     margin-top: 1rem;
   }
 }
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: aliceblue;
+  opacity: 0.6; /* Firefox */
+}

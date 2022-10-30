@@ -94,13 +94,13 @@ const UbikCalculator = (props) => {
             <h2 className="subtitle">Calculate Your Ubik Revenue Share</h2>
             <div className='revenue-container'>
                 <form className="form" onSubmit={addUbik}>
-                    <input className="ubik-number-input" type="number" required value={inputValue} onChange={onChangeHandler} placehodler="111" min="1" max="1618"></input>
-                    <input className='ubik-add-button' type="submit" value="Add Ubik #"></input>
+                    <input placeholder='1-1618' className="ubik-number-input" type="number" required value={inputValue} onChange={onChangeHandler} placehodler="111" min="1" max="1618"></input>
+                    <input className='ubik-add-button' type="submit" value="Add Ubik"></input>
                     <BsFillInfoCircleFill className='icon-var' onClick={() => {
                         hints ? setHints(false) : setHints(true)
                     }} />
                 </form>
-                {hints ? <p className='hints'><b>1.</b> Add your Ubik #s one at a time.<br></br>
+                {hints ? <p className='hints'><b>1.</b> Connect your wallet / Add your Ubiks one at a time.<br></br>
                     <b>2.</b> Click 'Calculate Rev %'.<br></br>
                     <b>Note:</b> Values will change dynamically as Ubiks level up. <br></br>Allow ten minutes for new Upgrades to appear.</p> : <></>}
                 {ubiks.map((ubik) => {
