@@ -16,7 +16,6 @@ const SelectedUbik = (props) => {
         <button className='selected-ubik-button selected-ubik-div' onClick={removeUbik} >
             <label className='selected-ubik' >{props.ubik}</label>X
         </button>
-
     )
 }
 
@@ -33,8 +32,6 @@ const UbikCard = (props) => {
         </div>
     )
 }
-
-
 
 const UbikCalculator = (props) => {
 
@@ -100,7 +97,7 @@ const UbikCalculator = (props) => {
                         hints ? setHints(false) : setHints(true)
                     }} />
                 </form>
-                {hints ? <p className='hints'><b>1.</b> Connect your wallet / Add your Ubiks one at a time.<br></br>
+                {hints ? <p className='hints'><b>1.</b> Connect your wallet or Add your Ubiks one at a time.<br></br>
                     <b>2.</b> Click 'Calculate Rev %'.<br></br>
                     <b>Note:</b> Values will change dynamically as Ubiks level up. <br></br>Allow ten minutes for new Upgrades to appear.</p> : <></>}
                 {ubiks.map((ubik) => {
